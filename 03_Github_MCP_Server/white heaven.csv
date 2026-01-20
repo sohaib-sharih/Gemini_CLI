@@ -1,0 +1,8 @@
+﻿ID,Name,Published,Sale price,Regular price,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global,Attribute 2 name,Attribute 2 value(s),Attribute 2 visible,Attribute 2 global
+30956,White Heaven Block Print Suits,1,,,Design,"Pattern 1, Pattern 2, Pattern 3",1,0,Fabric,"Cotton, Lawn",1,1
+30964,"White Heaven Block Print Suits - Pattern 1, Cotton",1,3680,4000,Design,Pattern 1,,0,Fabric,Cotton,,1
+30963,"White Heaven Block Print Suits - Pattern 1, Lawn",1,3400,4250,Design,Pattern 1,,0,Fabric,Lawn,,1
+30966,"White Heaven Block Print Suits - Pattern 2, Cotton",1,3680,4000,Design,Pattern 2,,0,Fabric,Cotton,,1
+30965,"White Heaven Block Print Suits - Pattern 2, Lawn",1,3400,4250,Design,Pattern 2,,0,Fabric,Lawn,,1
+30968,"White Heaven Block Print Suits - Pattern 3, Cotton",1,3680,4000,Design,Pattern 3,,0,Fabric,Cotton,,1
+30967,"White Heaven Block Print Suits - Pattern 3, Lawn",1,3400,4250,Design,Pattern 3,,0,Fabric,Lawn,,1

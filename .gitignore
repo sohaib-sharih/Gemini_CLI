@@ -1,0 +1,5 @@
+/02_GEMINImd_File/openai_chat/venv
+/02_GEMINImd_File/openai_chat/.mypy_cache/
+/02_GEMINImd_File/openai_chat/.chainlit/
+/02_GEMINImd_File/openai_chat/__pycache__
+*.pyc

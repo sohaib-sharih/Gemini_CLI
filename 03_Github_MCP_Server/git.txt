@@ -1,0 +1,60 @@
+Instructions for making Git commands executable within the 03_Github_MCP_Server Docker container:
+
+The core issue is that the Git executable is not available inside the Docker container running the '03_Github_MCP_Server'. To resolve this, you need to include Git installation steps in the Dockerfile used to build the image for this server.
+
+Steps:
+
+1.  **Locate or Create the Dockerfile:**
+    Ensure there is a `Dockerfile` in the root directory of your `03_Github_MCP_Server` project (e.g., `D:\Gemini\03_Github_MCP_Server\Dockerfile`).
+
+2.  **Add Git Installation Commands to the Dockerfile:**
+    Modify your `Dockerfile` to include commands that install Git. The exact commands depend on the base image used.
+
+    *   **For Debian/Ubuntu-based images** (e.g., `FROM python:3.10-slim`, `FROM ubuntu:latest`):
+        Add these lines after the `FROM` instruction and before copying application files:
+        ```dockerfile
+        RUN apt-get update && \
+            apt-get install -y --no-install-recommends git && \
+            rm -rf /var/lib/apt/lists/*
+        ```
+
+    *   **For Alpine-based images** (e.g., `FROM python:3.10-alpine`):
+        ```dockerfile
+        RUN apk update && \
+            apk add --no-cache git
+        ```
+
+    *   **For CentOS/Fedora-based images** (e.g., `FROM centos:latest`):
+        ```dockerfile
+        RUN yum update -y && \
+            yum install -y git && \
+            yum clean all
+        ```
+
+    **Example of a modified Dockerfile snippet (Debian/Ubuntu):**
+    ```dockerfile
+    FROM python:3.10-slim
+
+    # Install Git
+    RUN apt-get update && \
+        apt-get install -y --no-install-recommends git && \
+        rm -rf /var/lib/apt/lists/*
+
+    # ... rest of your Dockerfile (copying files, setting WORKDIR, ENTRYPOINT, etc.)
+    # Example:
+    # COPY . /app
+    # WORKDIR /app
+    # ENTRYPOINT ["python", "your_server_script.py"]
+    ```
+
+3.  **Rebuild the Docker Image:**
+    After saving the `Dockerfile`, rebuild the image. Navigate to the `03_Github_MCP_Server` directory in your terminal and run:
+    ```bash
+    docker build -t your-image-name:tag .
+    ```
+    (Replace `your-image-name:tag` with a relevant name like `mcp-server-with-git:latest`).
+
+4.  **Run a New Container:**
+    Stop and remove any existing containers running the old image. Then, start a new container using the newly built image with the same port mappings and volume configurations as before.
+
+This process ensures that Git is installed within the Docker image, making it available for Git operations executed by Gemini CLI through the `03_Github_MCP_Server` container.

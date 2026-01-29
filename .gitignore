@@ -3,3 +3,5 @@
 /02_GEMINImd_File/openai_chat/.chainlit/
 /02_GEMINImd_File/openai_chat/__pycache__
 *.pyc
+.gemini/
+gha-creds-*.json
